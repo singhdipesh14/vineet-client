@@ -1,11 +1,14 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
-import Landing from "./pages/Landing";
+import Landing from "./pages/Landing"
+import { MenuProvider } from "./contexts/MobileNavMenu"
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Landing/>
+		<MenuProvider>
+			<Landing />
+		</MenuProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
 )
