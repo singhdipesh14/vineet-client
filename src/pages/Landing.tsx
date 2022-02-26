@@ -1,4 +1,3 @@
-import React from "react"
 import Navbar from "../components/Navbar"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Home from "./Home"
@@ -11,6 +10,8 @@ import Footer from "./Footer"
 import { useMenuContext } from "../contexts/MobileNavMenu"
 import ModalMenu from "../components/ModalMenu"
 import styled from "styled-components"
+import Login from "./Login"
+import User from "./User"
 
 const Landing = () => {
 	const { isOpen } = useMenuContext()
@@ -20,10 +21,12 @@ const Landing = () => {
 				<Navbar></Navbar>
 				<ModalMenu classNames={isOpen ? "open modal" : "modal"}></ModalMenu>
 				<Routes>
-					<Route path="/" element={<Home />}></Route>
+					<Route index element={<Home />}></Route>
 					<Route path="/about" element={<About />}></Route>
 					<Route path="/publications" element={<Publications />}></Route>
-					<Route path="/blogs" element={<Blogs />}></Route>
+					<Route path="/blogs/*" element={<Blogs />}></Route>
+					<Route path="/login/*" element={<Login />}></Route>
+					<Route path="/users/*" element={<User />}></Route>
 					<Route path="*" element={<NotFound />}></Route>
 				</Routes>
 				<Contact></Contact>

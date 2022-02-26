@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import styled from "styled-components"
 import { BsTwitter, BsLinkedin } from "react-icons/bs"
 import size from "../utils/sizes"
+import axios from "axios"
 
 import {
 	ButtonComp,
@@ -139,12 +140,24 @@ const Contact = () => {
 	const [email, setEmail] = useState("")
 	const [subject, setSubject] = useState("")
 	const [message, setMessage] = useState("")
+	const [error, setError] = useState("")
 	const [submitted, setSubmitted] = useState(false)
+
+	const postSubmit = async () => {
+		axios
+			.post("/contact", { firstName, lastName, email, subject, message })
+			.then((response) => {
+				console.log(response)
+			})
+			.catch((err) => {
+				setError(err.response.data.msg)
+			})
+	}
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		setSubmitted(true)
-		console.log({ firstName, lastName, email, subject, message })
+		postSubmit()
 		setFirstName("")
 		setLastName("")
 		setEmail("")
@@ -154,7 +167,10 @@ const Contact = () => {
 
 	useEffect(() => {
 		if (submitted === true) {
-			let timeout = setTimeout(() => setSubmitted(false), 3000)
+			let timeout = setTimeout(() => {
+				setSubmitted(false)
+				setError("")
+			}, 3000)
 			return () => clearTimeout(timeout)
 		}
 	}, [submitted])
@@ -231,11 +247,12 @@ const Contact = () => {
 							</div>
 							<div className="single second">
 								<label className="label">
-									<p>Last Name</p>
+									<p>Last Name *</p>
 								</label>
 								<input
 									type="text"
 									value={lastName}
+									required
 									onChange={(e) => setLastName(e.target.value)}
 								/>
 							</div>
@@ -282,7 +299,7 @@ const Contact = () => {
 								lightColor="--dark-color"
 								to=""
 								disabled={submitted}>
-								{!submitted ? "Submit" : "Submitted ✅"}
+								{!submitted ? "Submit" : error ? error : "Submitted ✅"}
 							</Button>
 						</div>
 					</form>

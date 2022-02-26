@@ -3,12 +3,19 @@ import ReactDOM from "react-dom"
 import "./index.css"
 import Landing from "./pages/Landing"
 import { MenuProvider } from "./contexts/MobileNavMenu"
+import { AuthProvider } from "./contexts/Authentication"
+import axios from "axios"
+
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
+axios.defaults.withCredentials = true
 
 ReactDOM.render(
 	<React.StrictMode>
-		<MenuProvider>
-			<Landing />
-		</MenuProvider>
+		<AuthProvider>
+			<MenuProvider>
+				<Landing />
+			</MenuProvider>
+		</AuthProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
 )

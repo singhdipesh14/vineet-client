@@ -6,6 +6,8 @@
 	--medium-color: #e7efc5;
 	--tag-color: #bfd7b5;
 	--accent-color: #a3c4bc;
+	--error-color: #d8000c;
+	--error-text: #ffbaba;
 	/* --gradient: linear-gradient(360deg, #f36242 0%, #ffbc76 100%); */
 	--gradient: #fff;
 }
