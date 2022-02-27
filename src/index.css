@@ -22,10 +22,15 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+*:focus {
+	outline: none;
+}
+
 body {
 	background: var(--gradient);
 }
 
+li,
 p,
 button {
 	font-family: "Playfair Display", serif;

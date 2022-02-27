@@ -5,6 +5,8 @@ import Landing from "./pages/Landing"
 import { MenuProvider } from "./contexts/MobileNavMenu"
 import { AuthProvider } from "./contexts/Authentication"
 import axios from "axios"
+import { UserProvider } from "./contexts/UsersContext"
+import { BlogProvider } from "./contexts/BlogsContext"
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
 axios.defaults.withCredentials = true
@@ -12,9 +14,13 @@ axios.defaults.withCredentials = true
 ReactDOM.render(
 	<React.StrictMode>
 		<AuthProvider>
-			<MenuProvider>
-				<Landing />
-			</MenuProvider>
+			<UserProvider>
+				<BlogProvider>
+					<MenuProvider>
+						<Landing />
+					</MenuProvider>
+				</BlogProvider>
+			</UserProvider>
 		</AuthProvider>
 	</React.StrictMode>,
 	document.getElementById("root")

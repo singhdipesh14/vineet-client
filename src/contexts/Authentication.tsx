@@ -105,6 +105,21 @@ export const AuthProvider: React.FC = ({ children }) => {
 		setPassword("")
 	}
 
+	const logout = () => {
+		setLoading(true)
+		setError("")
+		axios
+			.get("/auth/logout")
+			.then((response) => {
+				setIsAuthenticated({ name: "", role: "", userId: "" })
+				setLoading(false)
+			})
+			.catch((error) => {
+				console.log(error)
+				setLoading(false)
+			})
+	}
+
 	useEffect(() => {
 		if (error) {
 			let timeout = setTimeout(() => setError(""), 3000)
@@ -115,7 +130,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 	useEffect(() => {
 		authenticate()
 	}, [])
-	const logout = () => {}
 	return (
 		<AuthContext.Provider
 			value={{

@@ -1,28 +1,27 @@
-import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useAuth } from "../contexts/Authentication"
-import {
-	Button,
-	ButtonComp,
-	H1,
-	H2,
-	H3,
-	Left,
-	Right,
-	Image,
-	Main,
-	P,
-	Section,
-} from "./Styled"
+import { useEffect } from "react"
+import { useUser } from "../contexts/UsersContext"
+import { useNavigate } from "react-router-dom"
+import { Left, Main, Section, H1 } from "./Styled"
 
 const User = () => {
+	const { id } = useParams()
+	const { getUserData, user } = useUser()
 	const { isAuthenticated } = useAuth()
-	let id = useParams().id || isAuthenticated.userId
+	const navigate = useNavigate()
+	useEffect(() => {
+		if (isAuthenticated.role !== "admin") {
+			navigate("/not-found")
+		} else {
+			if (id) getUserData(id)
+		}
+	}, [])
 	return (
 		<Main>
-			<Section isHero={false} background="--light-color">
+			<Section background="--medium-color" isHero={false}>
 				<Left isHero={false}>
-					<H1 color="--dark-color">{isAuthenticated.name}</H1>
+					<H1 color="--dark-color">{user.name}</H1>
 				</Left>
 			</Section>
 		</Main>
