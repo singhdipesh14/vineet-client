@@ -147,7 +147,6 @@ const Contact = () => {
 		axios
 			.post("/contact", { firstName, lastName, email, subject, message })
 			.then((response) => {
-				console.log(response)
 			})
 			.catch((err) => {
 				setError(err.response.data.msg)

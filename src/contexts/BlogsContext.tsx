@@ -77,7 +77,6 @@ export const BlogProvider: React.FC = ({ children }) => {
 		axios
 			.get(`/blogs/${id}`)
 			.then((response) => {
-				console.log(response)
 				setBlog(response.data.blog)
 				setLoading(false)
 			})
@@ -96,7 +95,7 @@ export const BlogProvider: React.FC = ({ children }) => {
 					blog.tags?.includes(search)
 			)
 		})
-	}, [search])
+	}, [search, blogs])
 
 	return (
 		<BlogContext.Provider

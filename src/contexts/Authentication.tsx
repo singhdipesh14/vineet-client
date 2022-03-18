@@ -55,7 +55,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 			.post("/auth/login", { email: username, password })
 			.then((response) => {
 				if (response.data.user) {
-					console.log(response)
 					setIsAuthenticated(response.data.user)
 					setLoading(false)
 				}

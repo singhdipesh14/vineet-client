@@ -44,7 +44,7 @@ const Wrapper = styled.div`
 `
 
 const ForgotPassword: React.FC = () => {
-	const { username, setUsername, forgotPassword, error, FP, setFP } = useAuth()
+	const { username, setUsername, forgotPassword, error, FP } = useAuth()
 	const navigate = useNavigate()
 	useEffect(() => {
 		if (FP === true) {
@@ -53,7 +53,7 @@ const ForgotPassword: React.FC = () => {
 			}, 3000)
 			return () => clearTimeout(timeout)
 		}
-	}, [FP])
+	}, [FP, navigate])
 	return FP ? (
 		<Redirecting />
 	) : (

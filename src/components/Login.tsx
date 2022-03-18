@@ -9,7 +9,6 @@ import {
 	P as TempP,
 	H1,
 } from "./Styled"
-import { useNavigate, useLocation } from "react-router-dom"
 
 const P = styled(TempP)`
 	margin-bottom: 0.5rem;
@@ -56,9 +55,6 @@ const Wrapper = styled.div`
 const LoginMe: React.FC = () => {
 	const { username, password, setPassword, setUsername, handleSubmit, error } =
 		useAuth()
-	let navigate = useNavigate()
-	let location: any = useLocation()
-	let from = location.state?.from?.pathname || "/"
 
 	return (
 		<Main>

@@ -23,11 +23,13 @@ import remark_math from "remark-math"
 import "../markdown.css"
 const Section = styled(TempSection)`
 	margin-top: 0;
+	padding: 0 10rem;
 	padding-top: 0;
 	width: 100%;
 	justify-content: center;
 	flex-direction: column;
 	@media screen and (max-width: ${size.tablet}) {
+		padding: 0 1rem;
 		padding-top: 0.5rem;
 	} /* padding: 0 1rem; */
 	@media screen and (max-width: ${size.mobileS}) {
@@ -70,15 +72,10 @@ const Wrapper = styled.article`
 		padding: 3rem 2rem;
 	}
 	@media screen and (max-width: ${size.mobileL}) {
-		padding: 1rem 1rem;
+		padding: 3rem 1rem;
 		margin-top: 3rem;
 	}
 	@media screen and (max-width: ${size.mobileM}) {
-		padding: 1rem 1rem;
-		margin-top: 2rem;
-	}
-	@media screen and (max-width: ${size.mobileS}) {
-		padding: 1rem 1rem;
 		margin-top: 2rem;
 	}
 `
@@ -182,6 +179,41 @@ const Links = styled.div`
 	}
 `
 
+const Extras = styled.div`
+	display: flex;
+	justify-content: space-between;
+	/* column-gap: 2rem; */
+	/* row-gap: 1rem; */
+	padding-bottom: 2rem;
+	@media screen and (max-width: ${size.tablet}) {
+		flex-direction: column;
+	}
+`
+
+const Part = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	@media screen and (max-width:${size.tablet}){
+		margin-bottom: 0.8rem;
+	}
+`
+
+const Tag = styled.div`
+	background-color: var(--dark-color);
+	padding: 1rem 2rem;
+	margin: 0.5rem;
+	color: var(--gradient);
+	font-size: 1.3rem;
+	@media screen and (max-width: ${size.mobileL}){
+		font-size: 1rem;
+	}
+`
+
+const TagTitle = styled.h3`
+	display: block;
+	color: var(--dark-color);
+`
+
 const Blog: React.FC<BlogType> = ({
 	_id,
 	description,
@@ -273,6 +305,34 @@ const Blog: React.FC<BlogType> = ({
 						</Button>
 					</LinksWrapper>
 				</Wrapper>
+				<Extras>
+					<div>
+						<TagTitle>categories</TagTitle>
+						<Part>
+							{categories &&
+								categories.map((item) => {
+									return (
+										<Tag key={item}>
+											<p>{item}</p>
+										</Tag>
+									)
+								})}
+						</Part>
+					</div>
+					<div>
+						<TagTitle>tags</TagTitle>
+						<Part>
+							{tags &&
+								tags.map((item) => {
+									return (
+										<Tag key={item}>
+											<p>{item}</p>
+										</Tag>
+									)
+								})}
+						</Part>
+					</div>
+				</Extras>
 			</Section>
 		</Main>
 	)
@@ -281,14 +341,14 @@ const Blog: React.FC<BlogType> = ({
 const BlogExp = () => {
 	const { id } = useParams()
 	const navigate = useNavigate()
-	console.log(id)
 	const { getSingleBlog, blog, loading, error } = useBlog()
 	useEffect(() => {
 		if (id) getSingleBlog(id)
+		// eslint-disable-next-line
 	}, [id])
 	useEffect(() => {
-		if (error !== "") navigate("/*")
-	}, [error])
+		if (error !== "") navigate("/404-not-found")
+	}, [error, navigate])
 	return loading ? <Spinner /> : error ? <p>error</p> : <Blog {...blog} />
 }
 

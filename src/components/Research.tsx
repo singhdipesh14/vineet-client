@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import { Section, Left, Right, Button, H1, P } from "./Styled"
 
 const Research = () => {

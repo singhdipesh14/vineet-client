@@ -5,7 +5,6 @@ import {
 	createContext,
 	Dispatch,
 	SetStateAction,
-	useEffect,
 } from "react"
 
 type UserType = {
@@ -60,7 +59,7 @@ export const UserProvider: React.FC = ({ children }) => {
 				setLoading(false)
 			})
 			.catch((error) => {
-				console.log(error)
+				console.log(error, "yeh error hai")
 				setLoading(false)
 			})
 	}

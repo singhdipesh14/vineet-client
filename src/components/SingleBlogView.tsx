@@ -140,9 +140,7 @@ const Blog: React.FC<BlogType> = ({
 	tags,
 	createdAt,
 }) => {
-	console.log(markdown)
 	const date = new Date(createdAt)
-	console.log(date)
 	const location = useLocation()
 	const [copied, setCopied] = useState(false)
 	useEffect(() => {

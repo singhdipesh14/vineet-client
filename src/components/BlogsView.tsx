@@ -2,16 +2,24 @@ import React from "react"
 import styled from "styled-components"
 import { useBlog } from "../contexts/BlogsContext"
 import size from "../utils/sizes"
-import { H1, H2, Left, Section as TempSection } from "./Styled"
+import { H2, Left, Section as TempSection } from "./Styled"
 import Blog from "./SingleBlogView"
 
 const Section = styled(TempSection)`
 	margin-top: 0;
+	padding: 0 10rem;
 	padding-top: 0;
 	width: 100%;
 	justify-content: center;
 	flex-direction: column;
 	/* padding: 0 1rem; */
+	@media screen and (max-width: ${size.laptop}) {
+		padding: 0 5rem;
+	}
+	@media screen and (max-width: ${size.tablet}) {
+		padding: 0;
+		padding-bottom:2rem;
+	}
 `
 
 const BlogsView = () => {

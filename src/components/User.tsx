@@ -16,7 +16,8 @@ const User = () => {
 		} else {
 			if (id) getUserData(id)
 		}
-	}, [])
+		// eslint-disable-next-line
+	}, [isAuthenticated])
 	return (
 		<Main>
 			<Section background="--medium-color" isHero={false}>

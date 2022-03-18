@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { useAuth } from "../contexts/Authentication"
-import styled from "styled-components"
 import { useUser } from "../contexts/UsersContext"
 import { useNavigate } from "react-router-dom"
 import Spinner from "./Spinner"
@@ -8,13 +7,9 @@ import {
 	Button,
 	ButtonComp,
 	H1,
-	H2,
-	H3,
 	Left,
 	Right,
-	Image,
 	Main,
-	P,
 	Section,
 } from "./Styled"
 
@@ -27,6 +22,7 @@ const User = () => {
 	const navigate = useNavigate()
 	useEffect(() => {
 		if (isAuthenticated.userId) getUserData(isAuthenticated.userId)
+		// eslint-disable-next-line
 	}, [isAuthenticated.userId])
 	return loading ? (
 		<Spinner />

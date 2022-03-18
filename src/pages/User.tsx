@@ -7,13 +7,14 @@ import { useEffect } from "react"
 import CreateUser from "../components/CreateUser"
 import UpdatePassword from "../components/UpdatePassword"
 const User = () => {
-	const { isAuthenticated, authenticate } = useAuth()
+	const { isAuthenticated } = useAuth()
 	const location = useLocation()
 	const navigate = useNavigate()
 	useEffect(() => {
 		if (isAuthenticated.userId === "")
 			navigate("/login", { replace: true, state: { from: location } })
-	})
+		// eslint-disable-next-line
+	}, [])
 	return (
 		<Routes>
 			<Route index element={<UserSelf />} />

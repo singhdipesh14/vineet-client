@@ -10,8 +10,6 @@ import {
 	Main,
 	Section as TempSection,
 	H1,
-	P,
-	ButtonComp,
 	Left,
 	Right as TempRight,
 } from "./Styled"
@@ -44,6 +42,7 @@ const BlogPublic = () => {
 	const { getAllBlogs, loading, error } = useBlog()
 	useEffect(() => {
 		getAllBlogs()
+		// eslint-disable-next-line
 	}, [])
 	return loading ? (
 		<Spinner />

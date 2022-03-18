@@ -2,7 +2,6 @@ import Spinner from "../components/Spinner"
 import LoginMe from "../components/Login"
 import { useAuth } from "../contexts/Authentication"
 import {
-	Navigate,
 	Route,
 	Routes,
 	useLocation,

@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import { Section, Left, Right, Button, H1, P } from "./Styled"
 
 const Publications = () => {
@@ -40,7 +39,7 @@ const Publications = () => {
 						explicabo nobis beatae.
 					</P>
 
-					<Button to="/blogs" darkColor="--dark-color" lightColor="--light-color">
+					<Button to="/publications" darkColor="--dark-color" lightColor="--light-color">
 						View All
 					</Button>
 				</div>
