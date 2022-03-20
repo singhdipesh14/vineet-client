@@ -8,7 +8,7 @@ import axios from "axios"
 import { UserProvider } from "./contexts/UsersContext"
 import { BlogProvider } from "./contexts/BlogsContext"
 
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
+axios.defaults.baseURL = "/api"
 axios.defaults.withCredentials = true
 
 ReactDOM.render(
