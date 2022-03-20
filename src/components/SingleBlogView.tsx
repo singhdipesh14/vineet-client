@@ -27,6 +27,9 @@ const Wrapper = styled.article`
 	}
 	@media screen and (max-width: ${size.tablet}) {
 		padding: 3rem 2rem;
+		width: auto;
+		margin-right: 0.5rem;
+		margin-left: 0.5rem;
 	}
 `
 const Meta = styled.div`

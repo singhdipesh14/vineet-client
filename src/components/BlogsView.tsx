@@ -19,6 +19,7 @@ const Section = styled(TempSection)`
 	@media screen and (max-width: ${size.tablet}) {
 		padding: 0;
 		padding-bottom:2rem;
+		/* margin:0.5rem; */
 	}
 `
 

@@ -75,6 +75,8 @@ const Right = styled(TempRight)`
 		border-bottom: 1px solid var(--medium-color);
 		background-color: transparent;
 		height: 2rem;
+		color: var(--medium-color);
+		font-size: 1rem; ;
 		:hover,
 		:focus {
 			border-bottom: 2px solid var(--medium-color);
@@ -85,6 +87,8 @@ const Right = styled(TempRight)`
 		border-bottom: 1px solid var(--medium-color);
 		background-color: transparent;
 		height: 3rem;
+		color: var(--medium-color);
+		margin-top: 5px;
 		:hover,
 		:focus {
 			border-bottom: 2px solid var(--medium-color);
@@ -92,6 +96,11 @@ const Right = styled(TempRight)`
 	}
 	.label {
 		color: var(--medium-color);
+		p::after{
+			content:"*";
+			color: var(--error-text);
+			margin-left: 4px;
+		}
 	}
 	.button {
 		margin: 0 auto;
@@ -235,7 +244,7 @@ const Contact = () => {
 						<div className="wrapper">
 							<div className="single first">
 								<label className="label">
-									<p>First Name *</p>
+									<p>First Name</p>
 								</label>
 								<input
 									type="text"
@@ -246,7 +255,7 @@ const Contact = () => {
 							</div>
 							<div className="single second">
 								<label className="label">
-									<p>Last Name *</p>
+									<p>Last Name</p>
 								</label>
 								<input
 									type="text"
@@ -259,7 +268,7 @@ const Contact = () => {
 						<div className="wrapper">
 							<div className="single first">
 								<label className="label">
-									<p>Email *</p>
+									<p>Email</p>
 								</label>
 								<input
 									type="email"
@@ -270,7 +279,7 @@ const Contact = () => {
 							</div>
 							<div className="single second">
 								<label className="label">
-									<p>Subject *</p>
+									<p>Subject</p>
 								</label>
 								<input
 									type="text"
@@ -282,7 +291,7 @@ const Contact = () => {
 						</div>
 						<div className="full-size">
 							<label className="label">
-								<p>Leave a message *</p>
+								<p>Leave a message</p>
 							</label>
 							<textarea
 								value={message}
