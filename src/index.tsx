@@ -1,30 +1,30 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import "./index.css"
-import Landing from "./pages/Landing"
-import { MenuProvider } from "./contexts/MobileNavMenu"
-import { AuthProvider } from "./contexts/Authentication"
-import axios from "axios"
-import { UserProvider } from "./contexts/UsersContext"
-import { BlogProvider } from "./contexts/BlogsContext"
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import Landing from "./pages/Landing";
+import { MenuProvider } from "./contexts/MobileNavMenu";
+import { AuthProvider } from "./contexts/Authentication";
+import axios from "axios";
+import { UserProvider } from "./contexts/UsersContext";
+import { BlogProvider } from "./contexts/BlogsContext";
 
-axios.defaults.baseURL = "/api"
-axios.defaults.withCredentials = true
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+axios.defaults.withCredentials = true;
 
 ReactDOM.render(
-	<React.StrictMode>
-		<AuthProvider>
-			<UserProvider>
-				<BlogProvider>
-					<MenuProvider>
-						<Landing />
-					</MenuProvider>
-				</BlogProvider>
-			</UserProvider>
-		</AuthProvider>
-	</React.StrictMode>,
-	document.getElementById("root")
-)
+    <React.StrictMode>
+        <AuthProvider>
+            <UserProvider>
+                <BlogProvider>
+                    <MenuProvider>
+                        <Landing />
+                    </MenuProvider>
+                </BlogProvider>
+            </UserProvider>
+        </AuthProvider>
+    </React.StrictMode>,
+    document.getElementById("root")
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

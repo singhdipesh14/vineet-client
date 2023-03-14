@@ -1,5 +1,5 @@
 const Protected = () => {
-	return <p>protected</p>
-}
+    return <p>protected</p>;
+};
 
-export default Protected
+export default Protected;

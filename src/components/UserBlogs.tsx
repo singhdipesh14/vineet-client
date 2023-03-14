@@ -1,7 +1,6 @@
-
 type BlogsProps = {
-	id: string
-}
+    id: string;
+};
 
-const Blogs: React.FC<BlogsProps> = ({ id }) => <p>my reviews</p>
-export default Blogs
+const Blogs: React.FC<BlogsProps> = ({ id }) => <p>my reviews</p>;
+export default Blogs;

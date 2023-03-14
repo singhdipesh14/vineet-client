@@ -1,37 +1,37 @@
 :root {
-	--dark-color: #413c58;
-	/* --light-color: #e7efc5; */
-	/* --light-color: #fff; */
-	--light-color: #f2dda4;
-	--medium-color: #e7efc5;
-	--tag-color: #bfd7b5;
-	--accent-color: #a3c4bc;
-	--error-color: #d8000c;
-	--error-text: #ffbaba;
-	/* --gradient: linear-gradient(360deg, #f36242 0%, #ffbc76 100%); */
-	--gradient: #fff;
+    --dark-color: #413c58;
+    /* --light-color: #e7efc5; */
+    /* --light-color: #fff; */
+    --light-color: #f2dda4;
+    --medium-color: #e7efc5;
+    --tag-color: #bfd7b5;
+    --accent-color: #a3c4bc;
+    --error-color: #d8000c;
+    --error-text: #ffbaba;
+    /* --gradient: linear-gradient(360deg, #f36242 0%, #ffbc76 100%); */
+    --gradient: #fff;
 }
 
 *,
 *::before,
 *::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 *:focus {
-	outline: none;
+    outline: none;
 }
 
 body {
-	background: var(--gradient);
+    background: var(--gradient);
 }
 
 * {
-	font-family: 'Merriweather', serif;
+    font-family: "Merriweather", serif;
 }
 
 h1,
@@ -40,11 +40,11 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 a {
-	text-decoration: none;
-	color: inherit;
-	display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
 }

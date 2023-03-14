@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
 const ListUsers = () => {
-	return <div>ListUsers</div>
-}
+    return <div>ListUsers</div>;
+};
 
-export default ListUsers
+export default ListUsers;

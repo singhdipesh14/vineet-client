@@ -1,3 +1,3 @@
-const UpdateUser = () => <p>update user</p>
+const UpdateUser = () => <p>update user</p>;
 
-export default UpdateUser
+export default UpdateUser;

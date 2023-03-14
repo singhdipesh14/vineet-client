@@ -1,24 +1,24 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState } from "react";
 
 type menuContextType = {
-	isOpen: boolean
-	toggleOpen: () => void
-}
+    isOpen: boolean;
+    toggleOpen: () => void;
+};
 
-const MenuContext = createContext({} as menuContextType)
+const MenuContext = createContext({} as menuContextType);
 
 export const MenuProvider: React.FC = ({ children }) => {
-	const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
-	const toggleOpen = () => {
-		setIsOpen(!isOpen)
-	}
+    const toggleOpen = () => {
+        setIsOpen(!isOpen);
+    };
 
-	return (
-		<MenuContext.Provider value={{ isOpen, toggleOpen }}>
-			{children}
-		</MenuContext.Provider>
-	)
-}
+    return (
+        <MenuContext.Provider value={{ isOpen, toggleOpen }}>
+            {children}
+        </MenuContext.Provider>
+    );
+};
 
-export const useMenuContext = () => useContext(MenuContext)
+export const useMenuContext = () => useContext(MenuContext);
