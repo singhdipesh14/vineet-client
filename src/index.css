@@ -20,6 +20,7 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-align: justify;
 }
 
 *:focus {
@@ -41,6 +42,7 @@ h4,
 h5,
 h6 {
     font-family: "Montserrat", sans-serif;
+    text-align: start;
 }
 
 a {

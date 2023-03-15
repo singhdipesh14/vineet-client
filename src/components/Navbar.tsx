@@ -5,10 +5,13 @@ import size from "../utils/sizes";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useMenuContext } from "../contexts/MobileNavMenu";
 
-const links = [
+export const links = [
     { name: "About", to: "about" },
+    { name: "Research", to: "research" },
+    { name: "Positions", to: "positions" },
+    { name: "Gallery", to: "gallery" },
     { name: "Publications", to: "publications" },
-    { name: "Blog", to: "blogs" },
+    // { name: "Blog", to: "blogs" },
     { name: "Contact", to: "#contact" },
 ];
 
@@ -43,14 +46,13 @@ const Navbar: React.FC = () => {
 
 const Header = styled.header`
     color: var(--dark-color);
-    /* padding-bottom: 20px; */
     overflow: hidden;
 `;
 
 const Container = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 100vw;
+    align-items: center;
     padding: 30px;
     @media (max-width: ${size.mobileL}) {
         padding: 20px;
@@ -58,29 +60,37 @@ const Container = styled.div`
 `;
 
 const Name = styled.h2`
-    font-size: 1.6rem;
+    font-size: 1rem;
     margin-left: 2vw;
-    transition: 200ms ease-in-out opacity;
+    transition: 200ms ease-in-out color;
+    position: relative;
     :hover {
-        opacity: 0.7;
+        ::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: -15px;
+            top: -30px;
+            padding: 7px 10px;
+            width: calc(100% + 30px);
+            height: calc(100% + 60px);
+            background-color: var(--dark-color);
+        }
+        color: var(--medium-color);
     }
     @media (max-width: ${size.mobileL}) {
         margin-left: 0px;
     }
-    @media (max-width: ${size.mobileM}) {
-        font-size: 1.5rem;
-    }
     @media (max-width: ${size.mobileS}) {
         margin-left: 0;
         margin-top: 2px;
-        font-size: 1.4rem;
+        display: inline-block;
     }
 `;
 
 const Links = styled.div`
     display: flex;
-    justify-content: space-between;
-    width: 35vw;
+    justify-content: right;
     margin-right: 40px;
     @media (max-width: ${size.laptopL}) {
         width: 40%;
@@ -94,18 +104,61 @@ const Links = styled.div`
 `;
 
 const Link = styled(NavLink)`
-    font-size: 1.6rem;
-    transition: 300ms opacity ease-in-out;
+    transition: 300ms color ease-in-out;
+    position: relative;
     :hover {
-        opacity: 0.7;
+        ::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: -15px;
+            top: -30px;
+            padding: 7px 10px;
+            width: calc(100% + 30px);
+            height: calc(100% + 60px);
+            background-color: var(--dark-color);
+        }
+        /* opacity: 0.7; */
+        color: var(--medium-color);
+    }
+    margin: 0 10px;
+    @media (max-width: ${size.laptop}) {
+        margin: 0 5px;
+        :hover {
+            ::before {
+                left: -8px;
+                width: calc(100% + 16px);
+            }
+        }
     }
 `;
 
 const Contact = styled(HashLink)`
-    font-size: 1.6rem;
-    transition: 300ms opacity ease-in-out;
+    transition: 300ms color ease-in-out;
+    margin-left: 10px;
+    position: relative;
     :hover {
-        opacity: 0.7;
+        ::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: -15px;
+            top: -30px;
+            padding: 7px 10px;
+            width: calc(100% + 30px);
+            height: calc(100% + 60px);
+            background-color: var(--dark-color);
+        }
+        color: var(--medium-color);
+    }
+    @media (max-width: ${size.laptop}) {
+        margin-left: 5px;
+        :hover {
+            ::before {
+                left: -8px;
+                width: calc(100% + 16px);
+            }
+        }
     }
 `;
 
@@ -114,10 +167,10 @@ const Hamburger = styled(GiHamburgerMenu)`
     @media (max-width: ${size.tablet}) {
         display: inline-block;
         color: var(--dark-color);
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     @media (max-width: ${size.mobileM}) {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
     }
 `;
 

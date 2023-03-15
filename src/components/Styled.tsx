@@ -72,6 +72,14 @@ export const Right = styled.article`
     }
 `;
 
+export const Center = styled.article`
+    width: 60%;
+    margin: 0 auto;
+    @media screen and (max-width: ${size.tablet}) {
+        width: 90%;
+    }
+`;
+
 interface ButtonProps {
     darkColor: string;
     lightColor: string;
@@ -153,7 +161,7 @@ export const Image = styled.img`
     }
     @media screen and (max-width: ${size.tablet}) {
         width: 100%;
-        height: fit-content;
+        height: auto;
         border-radius: 0;
     }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import size from "../utils/sizes";
 
 const Footer = () => {
     return (
@@ -22,6 +23,8 @@ const Footer = () => {
 const FooterComp = styled.footer`
     padding: 1rem;
     text-align: center;
+    display: flex;
+    justify-content: center;
     width: 100%;
     color: var(--dark-color);
     background-color: var(--light-color);
@@ -31,6 +34,9 @@ const FooterComp = styled.footer`
             color: blue;
             text-decoration: underline;
         }
+    }
+    @media (max-width: ${size.tablet}) {
+        font-size: 0.8rem;
     }
 `;
 

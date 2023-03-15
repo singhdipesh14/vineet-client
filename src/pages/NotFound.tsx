@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { Main, Section, Button } from "../components/Styled";
 
 const Wrapper = styled.div`
-    display: inline-block;
     margin: 0 auto;
     text-align: center;
     color: var(--dark-color);
     h1 {
         font-size: 6rem;
+        text-align: center;
         margin-bottom: 1rem;
     }
     p {
@@ -31,9 +31,9 @@ const NotFound = () => {
                     <Button
                         darkColor="--dark-color"
                         lightColor="--light-color"
-                        to="/blogs"
+                        to="/"
                     >
-                        Take me to the blog!
+                        Take me home!
                     </Button>
                 </Wrapper>
             </Section>

@@ -41,7 +41,7 @@ const Research = () => {
                         Illo.
                     </P>
                     <Button
-                        to="/blogs"
+                        to="/research"
                         darkColor="--dark-color"
                         lightColor="--light-color"
                     >

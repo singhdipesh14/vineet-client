@@ -5,13 +5,7 @@ import { HashLink } from "react-router-hash-link";
 import { AiOutlineClose } from "react-icons/ai";
 import { useMenuContext } from "../contexts/MobileNavMenu";
 import size from "../utils/sizes";
-
-const links = [
-    { name: "About", to: "about" },
-    { name: "Publications", to: "publications" },
-    { name: "Blog", to: "blogs" },
-    { name: "Contact", to: "#contact" },
-];
+import { links } from "./Navbar";
 
 const ModalMenu: React.FC<{ classNames: string }> = ({ classNames }) => {
     const { toggleOpen } = useMenuContext();
@@ -48,7 +42,7 @@ const Wrapper = styled.aside`
 `;
 const CloseBtn = styled(AiOutlineClose)`
     color: var(--dark-color);
-    font-size: 2.4rem;
+    font-size: 1.5rem;
     position: fixed;
     right: 30px;
     top: 30px;
@@ -67,9 +61,9 @@ const Links = styled.div`
     flex-direction: column;
     color: var(--dark-color);
     font-weight: 500;
-    font-size: 2.3rem;
+    font-size: 1.2rem;
     @media (max-width: ${size.mobileL}) {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
     .link {
         transition: 200ms ease-in-out all;
